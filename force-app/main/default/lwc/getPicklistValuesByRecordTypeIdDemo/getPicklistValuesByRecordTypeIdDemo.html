@@ -1,0 +1,52 @@
+<template>
+    <lightning-card  title="get picklist values demo: Industry">
+        <p class="slds-p-horizontal_small">
+            <template if:true={industryOptions}>
+                <lightning-combobox
+                    name="Industry"
+                    label="Industry"
+                    value={selectedIndustry}
+                    placeholder="Select Industry"
+                    options={industryOptions}
+                    onchange={handleChange} ></lightning-combobox>
+            </template>
+        </p>
+        <p class="slds-p-horizontal_small">
+            Selected Industry : <strong style="color:blue">{selectedIndustry}</strong>
+        </p>
+    </lightning-card>
+    
+    <lightning-card  title="get picklist values demo: Rating">
+        <p class="slds-p-horizontal_small">
+            <template if:true={ratingOptions}>
+                <lightning-combobox
+                    name="Rating"
+                    label="Rating"
+                    value={selectedRating}
+                    placeholder="Select Rating"
+                    options={ratingOptions}
+                    onchange={handleChange} ></lightning-combobox>
+            </template>
+        </p>
+        <p class="slds-p-horizontal_small">
+            Selected Rating : <strong style="color:blue">{selectedRating}</strong>
+        </p>
+    </lightning-card>
+    
+    <lightning-card  title="get picklist values demo: Type">
+        <p class="slds-p-horizontal_small">
+            <template if:true={typeOptions}>
+                <lightning-combobox
+                    name="Type"
+                    label="Type"
+                    value={selectedType}
+                    placeholder="Select Type"
+                    options={typeOptions}
+                    onchange={handleChange} ></lightning-combobox>
+            </template>
+        </p>
+        <p class="slds-p-horizontal_small">
+            Selected Type : <strong style="color:blue">{selectedType}</strong>
+        </p>
+    </lightning-card>
+</template>

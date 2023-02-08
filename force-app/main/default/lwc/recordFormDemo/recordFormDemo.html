@@ -1,0 +1,30 @@
+<template>
+    <lightning-card  title="Lightning base component: record form demo">
+        <p class="slds-p-horizontal_small">
+            <lightning-record-form
+                object-api-name={objectName}
+                fields={fieldsName}
+                onsuccess={successHandler}></lightning-record-form>
+        </p>
+    </lightning-card>
+    <br/>
+    <lightning-card  title="display data in view mode: record-form">
+        <p class="slds-p-horizontal_small">
+            <lightning-record-form
+                object-api-name={objectName}
+                fields={fieldsName}
+                record-id="0011m00000eAhiTAAS"></lightning-record-form>
+        </p>
+    </lightning-card>
+    <br/>
+    <lightning-card  title="display data in read-only mode: record-form">
+        <p class="slds-p-horizontal_small">
+            <lightning-record-form
+                object-api-name={objectName}
+                fields={fieldsName}
+                record-id="0011m00000eAhiTAAS"
+                mode="readonly"
+                columns="2"></lightning-record-form>
+        </p>
+    </lightning-card>
+</template>

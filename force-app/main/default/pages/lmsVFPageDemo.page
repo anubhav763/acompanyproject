@@ -1,0 +1,48 @@
+<apex:page lightningStyleSheet="true">
+    <apex:slds/>
+    <div class="slds-scope">
+        <div class="slds-p-around_small">
+            <label>Enter publish message</label>
+            <input type="text" class="slds-input" id="messageField" />
+            <div class="slds-p-top_small slds-p-bottom_small">
+                <button class="slds-button slds-button_neutral" onclick="publishHnader()">Publish</button>
+                <button class="slds-button slds-button_neutral" onclick="subscribeHnader()">Subscribe</button>
+                <button class="slds-button slds-button_neutral" onclick="unsubscribeHnader()">Unsubscribe</button>
+            </div>
+            <p>Message Received</p>
+            <div id="receivedMessage"></div>
+        </div>
+    </div>
+    <script>
+        let SMPLEMC = "{!$MessageChannel.SampleMessageChannel__c}";
+        let subscriptionToMC;
+
+        function publishHandler() {
+            let data = document.getElementById("messageField").value;
+            const message = {
+                lmsData: {
+                    value: data
+                }
+            }
+            sforce.one, publish(SAMPLEMC, message);
+        }
+
+        function subscribeHnader() {
+            if (!subscriptionToMC) {
+                this.subscriptionToMC = sforce.one.subscribe(SAMPLEMC, msgHandler, { scope: "APPLICATION" })
+            }
+        }
+
+        function msgHandler(message) {
+            let receivedMessage = document.getElementById("receivedMessage")
+            receivedMessage.innerHTML = message && message.lmsData ? message.lmsData.value : "No Data Available to Publish"
+        }
+
+        function unsubscribeHnader() {
+            if (subscriptionToMC) {
+                sforce.one.unsubscribe(subscriptionToMC)
+                subscriptionToMC = null;
+            }
+        }
+    </script>
+</apex:page>

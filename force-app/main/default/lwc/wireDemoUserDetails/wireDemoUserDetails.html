@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="User details using wire as function">
+        <p class="slds-p-horizontal_small"> 
+            Hello, This is a wire demo as function...!!! : {userId}
+        </p>
+        <p class="slds-p-horizontal_small"> 
+            <template if:true={userDetails}>
+                <div>Email - {userDetails.Email.value}</div>
+                <div>Name - {userDetails.Name.value}</div>
+            </template>
+        </p>
+    </lightning-card>
+    <br/>
+    <lightning-card title="User details using wire as property">
+        <p class="slds-p-horizontal_small"> 
+            Hello, This is a wire demo as property...!!! : {userId}
+        </p>
+        <p class="slds-p-horizontal_small"> 
+            <template if:true={userDetailProperty.data}>
+                <div>Email - <strong>{userDetailProperty.data.fields.Email.value}</strong></div>
+                <div>Name - <strong>{userDetailProperty.data.fields.Name.value}</strong></div>
+            </template>
+        </p>
+    </lightning-card>
+</template>

@@ -1,0 +1,36 @@
+<template>
+    <lightning-card  title="Static Resource Demo">
+        <p class="slds-p-horizontal_small">
+            <img src={applogo} alt="Application Logo" height="100px" width="100px"/>
+        </p>
+    </lightning-card>
+    <br/>
+    <lightning-card  title="Third Party JS Demo">
+        <p class="slds-p-horizontal_small">
+            Hey, current date is <strong>{currentDate}</strong>...!!!
+        </p>
+    </lightning-card>
+    <br/>
+    <lightning-card  title="Third Party CSS Demo">
+        <p class="slds-p-horizontal_small animate__animated animate__bounce animate__delay-5s">
+            Hey, third party CSS uploaded <strong>successfully</strong>...!!!
+        </p>
+    </lightning-card>
+    <br/>
+    <lightning-card  title="Custom label Demo">
+        <p class="slds-p-horizontal_small">
+            {description_one}
+        </p>
+    </lightning-card>
+    <br/>
+    <lightning-card  title="User Permission Demo">
+        <p class="slds-p-horizontal_small">
+            <template if:true={hasViewAllDataAvailable}>
+                welcome User, you have the access to this component...!!!
+            </template>
+            <template if:false={hasViewAllDataAvailable}>
+                Ops... User, you don't the access to this component...!!!
+            </template>
+        </p>
+    </lightning-card>
+</template>
